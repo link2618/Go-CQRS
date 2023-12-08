@@ -3,6 +3,7 @@ module cqrs/initial
 go 1.21.3
 
 require (
+	github.com/elastic/go-elasticsearch/v7 v7.17.10 // indirect
 	github.com/klauspost/compress v1.17.0 // indirect
 	github.com/lib/pq v1.10.9 // indirect
 	github.com/nats-io/nats.go v1.31.0 // indirect
