@@ -24,5 +24,20 @@ services:
     container_name: cqrs_elasticsearch
     environment:
       - "discover.type=single-node"
+  
+  feed:
+    build: "."
+    container_name: cqrs_feed_service
+    command: "feed-service"
+    depends_on:
+      - "postgres"
+      - "nats"
+    ports:
+      - "8080"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+      NATS_ADDRESS: "nats:4222"
 
 # docker compose up -d
